@@ -33,6 +33,7 @@ export class PrelievoComponent {
     this.service.preleva(prelevato);
     console.log(`Hai prelevato ${prelevato}. Saldo attuale: ${this.service.getSaldo()}`);
 
+    this.ngOnInit();
 
   }
 }
