@@ -1,0 +1,18 @@
+<h3>Prelievo</h3>
+<h5>Quanto vuoi prelevare?</h5>
+
+<label for="withdraw">Importo:</label>
+<div class="input-group w-25">
+    <span class="input-group-text"><i class="bi bi-currency-euro"></i></span>
+    <input type="text" class="form-control" placeholder="Inserisci l'importo" [formControl]="withdraw" [class]="{ 
+    'is-invalid': withdraw.invalid && withdraw.touched,
+    'is-valid': withdraw.valid && withdraw.dirty
+  }">
+</div>
+<button type="submit" class="btn btn-primary my-3" (click)="saldoPrelevato()">Preleva</button>
+
+@if(withdraw.invalid && withdraw.touched){
+<div class="text-danger">
+    <i class="bi bi-exclamation-circle-fill"></i> Inserisci un importo valdo
+</div>
+}
