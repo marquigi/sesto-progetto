@@ -3,16 +3,22 @@
 
 <label for="withdraw">Importo:</label>
 <div class="input-group w-25">
-    <span class="input-group-text"><i class="bi bi-currency-euro"></i></span>
-    <input type="text" class="form-control" placeholder="Inserisci l'importo" [formControl]="withdraw" [class]="{ 
+  <span class="input-group-text"><i class="bi bi-currency-euro"></i></span>
+  <input type="text" class="form-control" placeholder="Inserisci l'importo" [formControl]="withdraw" [class]="{ 
     'is-invalid': withdraw.invalid && withdraw.touched,
     'is-valid': withdraw.valid && withdraw.dirty
   }">
 </div>
 <button type="submit" class="btn btn-primary my-3" (click)="saldoPrelevato()">Preleva</button>
 
-@if(withdraw.invalid && withdraw.touched){
+@if(withdraw.invalid && withdraw.touched) {
 <div class="text-danger">
-    <i class="bi bi-exclamation-circle-fill"></i> Inserisci un importo valdo
+  <i class="bi bi-exclamation-circle-fill"></i> Inserisci un importo valido.
+</div>
+} @else if (withdraw.valid && withdraw.dirty) {
+<div class="text-success">
+  Confermiamo che l'operazione è andata a buon fine.
 </div>
 }
+
+<p class="mt-3">Saldo attuale: {{ saldoAttuale }}€</p>

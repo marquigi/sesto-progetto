@@ -5,17 +5,22 @@ import { Injectable } from '@angular/core';
 })
 export class ServiceService {
 
-  saldo: number = 7000
+  saldo: number = 7000;
 
   constructor() { }
 
   getSaldo() {
-    return this.saldo
+    return this.saldo;
   }
 
   preleva(importo: number) {
     console.log('hai prelevato!');
-    this.saldo -= importo;
+    if (this.saldo < importo) {
+      alert(`Attenzione: importo superiore al saldo disponibile (${this.saldo}€).`)
+      return
+    } else {
+      this.saldo -= importo;
+    }
   }
 
 }
