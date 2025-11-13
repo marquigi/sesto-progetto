@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { ServiceService } from '../../services/service-service';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-d-contante.component',
-  imports: [],
+  imports: [ReactiveFormsModule],
   templateUrl: './d-contante.component.html',
   styleUrl: './d-contante.component.css',
 })
@@ -20,14 +20,9 @@ export class DContanteComponent {
     this.saldoAttuale = this.service.getSaldo();
   }
 
-  saldoPrelevato() {
+  saldoDepositato() {
     const depositato = Number(this.cashDeposit.value);
     console.log(`Hai depositato ${depositato}`);
-
-    if (isNaN(depositato) || depositato <= 0) {
-      console.log('Importo non valido');
-      return
-    }
 
     this.service.deposita(depositato);
     console.log(`Hai depositato ${depositato}. Saldo attuale: ${this.service.getSaldo()}`);

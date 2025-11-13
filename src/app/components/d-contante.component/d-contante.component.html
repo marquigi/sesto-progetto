@@ -4,12 +4,23 @@
 <label for="cashDeposit">Deposito contante</label>
 <div class="input-group w-25">
     <span class="input-group-text"><i class="bi bi-currency-euro"></i></span>
-    <input type="text" class="form-control" placeholder="Inserisci l'importo">
+    <input type="text" class="form-control" placeholder="Inserisci l'importo" [formControl]="cashDeposit" [class]="{ 
+    'is-invalid': cashDeposit.invalid && cashDeposit.touched,
+    'is-valid': cashDeposit.valid && cashDeposit.dirty
+  }">
 
-    <!-- [formControl]="" [class]="{ 
-    'is-invalid': .invalid && .touched,
-    'is-valid': .valid && .dirty
-  }"> -->
 </div>
 
-<button type="submit" class="btn btn-primary my-3">Deposita</button>
+@if(cashDeposit.invalid && cashDeposit.touched) {
+<div class="text-danger">
+    <i class="bi bi-exclamation-circle-fill"></i> Inserisci un importo valido.
+</div>
+} @else if (cashDeposit.valid && cashDeposit.dirty) {
+<div class="text-success">
+    <i class="bi bi-check-circle-fill"></i>
+</div>
+}
+
+<button type="submit" class="btn btn-primary my-3" (click)="saldoDepositato()">Deposita</button>
+
+<p class="mt-3">Saldo attuale: {{ saldoAttuale }}€</p>
