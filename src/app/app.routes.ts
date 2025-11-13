@@ -12,8 +12,8 @@ export const routes: Routes = [
     {
         path: 'deposito', component: DepositoComponent,
         children: [
-            { path: 'contante', component: DAssegniComponent },
-            { path: 'assegni', component: DContanteComponent }
+            { path: 'assegni', component: DAssegniComponent },
+            { path: 'contante', component: DContanteComponent }
         ]
     }
 ];

@@ -22,7 +22,7 @@ export class PrelievoComponent {
 
   saldoPrelevato() {
 
-    const prelevato = Number(this.withdraw.value)
+    const prelevato = Number(this.withdraw.value);
     console.log(`hai prelevato ${prelevato}`);
 
     if (isNaN(prelevato) || prelevato <= 0) {
@@ -34,6 +34,6 @@ export class PrelievoComponent {
     console.log(`Hai prelevato ${prelevato}. Saldo attuale: ${this.service.getSaldo()}`);
 
     this.ngOnInit();
-
+    this.withdraw.reset('');
   }
 }

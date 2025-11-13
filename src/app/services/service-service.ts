@@ -20,7 +20,13 @@ export class ServiceService {
       return
     } else {
       this.saldo -= importo;
+      alert("Confermiamo che l'operazione è andata a buon fine.")
     }
+  }
+
+  deposita(importo: number) {
+    console.log('Hai depositato!');
+
   }
 
 }

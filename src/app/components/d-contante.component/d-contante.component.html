@@ -1,1 +1,15 @@
-<p>d-contante.component works!</p>
+<h3>Deposito Contante</h3>
+<h5>Quanto vuoi depositare?</h5>
+
+<label for="cashDeposit">Deposito contante</label>
+<div class="input-group w-25">
+    <span class="input-group-text"><i class="bi bi-currency-euro"></i></span>
+    <input type="text" class="form-control" placeholder="Inserisci l'importo">
+
+    <!-- [formControl]="" [class]="{ 
+    'is-invalid': .invalid && .touched,
+    'is-valid': .valid && .dirty
+  }"> -->
+</div>
+
+<button type="submit" class="btn btn-primary my-3">Deposita</button>
